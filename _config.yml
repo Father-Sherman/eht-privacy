@@ -1,0 +1,10 @@
+title: "E-HT Weight Loss"
+description: "Privacy policy for the E-HT Weight Loss Android app."
+theme: jekyll-theme-cayman
+
+# Keeps the Jekyll site index clean — only the two .md files in
+# the repo root are pages; everything else (.gitignore, README,
+# etc.) should not be served.
+include:
+  - privacy.md
+  - index.md
