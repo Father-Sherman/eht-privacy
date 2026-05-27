@@ -61,7 +61,8 @@ previously-exported file via the same screen.
 
 ## What leaves your device
 
-There are three categories of network requests the app makes.
+There are four categories of network requests the app makes,
+the last of which can be turned off in Settings.
 
 ### 1. Meal parsing — Google Gemini API
 
@@ -108,6 +109,28 @@ of those services:
 
 - [Ko-fi Privacy Policy](https://more.ko-fi.com/privacy)
 - [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)
+
+### 4. Crash reports — Sentry (opt-out)
+
+If the app encounters an unhandled error (a "crash"), it
+sends a report to [Sentry](https://sentry.io) so I can see
+that something broke and fix it. This is **on by default**
+but can be turned off any time under **Settings → About &
+Legal → Send crash reports**.
+
+- **Sent**: the stack trace and error message, app version,
+  Android version, device model, locale, and the route
+  (screen) where the error occurred.
+- **Not sent**: meal text, food names, weights, body
+  measurements, sleep data, step counts, photos, profile
+  info, API keys, or anything else from your local data.
+  The SDK is configured with `sendDefaultPii: false` and
+  user-input breadcrumbs are dropped before transmission.
+- **Receiver**: Sentry. Subject to [Sentry's Privacy Policy](https://sentry.io/privacy/).
+- **How to disable**: Settings → About & Legal → toggle
+  "Send crash reports" off. The setting takes effect
+  immediately — no app restart required, no further data
+  leaves the device.
 
 ---
 
@@ -200,7 +223,8 @@ data, uninstall the app from that device to remove all data.
 - ❌ Show advertising
 - ❌ Track you across apps or websites
 - ❌ Use cookies or device-tracking identifiers
-- ❌ Share or sell any data with anyone
+- ❌ Share or sell any data with anyone (crash reports under
+  Section 4 above are an exception, opt-out in Settings)
 - ❌ Operate any server collecting user data
 - ❌ Require account signup
 - ❌ Sync your data to the cloud
