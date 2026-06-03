@@ -132,14 +132,14 @@ to reach me; two of them send data to Sentry.
   whether or not crash reporting is enabled, because each is an
   explicit submission you initiate.
 - **"Open in-app feedback form"** is Sentry's own feedback
-  widget. It sends your message and, **optionally**, a name and
-  email if you choose to fill those fields — they are not
-  required, and the form submits with or without them. This
-  button is hidden when crash reporting is turned off.
+  widget. It sends **only the free-text message you write** (plus
+  the same environment metadata) — its name and email fields are
+  turned off, so it never collects anything that identifies you.
+  This button is hidden when crash reporting is turned off.
 
-The name and email, when provided, exist only so I can reply to
-you. **Screenshots are never sent** — the widget's screen-capture
-option is disabled because your screens can contain weights, body
+**No name or email is collected by any of these.** **Screenshots
+are never sent** either — the widget's screen-capture option is
+disabled because your screens can contain weights, body
 measurements, and other private health data.
 
 **Receiver for crash reports and both Sentry feedback paths
