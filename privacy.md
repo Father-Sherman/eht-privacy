@@ -7,7 +7,7 @@ permalink: /privacy/
 # E-HT Weight Loss — Privacy Policy
 
 **Effective date:** May 27, 2026
-**Last updated:** May 29, 2026
+**Last updated:** June 3, 2026
 
 This document describes how the E-HT Weight Loss Android app
 ("the app") handles your data. It is written in plain English
@@ -18,13 +18,15 @@ them without legal training.
 
 ## Summary in one paragraph
 
-Nearly everything you log in the app stays on your phone. The only
+Nearly everything you log in the app stays on your phone. The main
 data that leaves your device is the **text you type or speak when
-describing meals** (sent to Google's Gemini API for nutrition
-parsing) and **food-name lookups** (sent to the USDA FoodData
-Central API). The app never sells your data, never shows ads,
-never tracks you across apps or websites, and has no servers of
-its own. Uninstalling the app deletes everything it stored.
+describing meals** (sent to Google's Gemini API, which parses it and
+estimates calories/macros). The app also sends **crash reports** and
+any **feedback you submit** to an error-tracking service (Sentry) —
+crash reporting is on by default but can be turned off in Settings.
+The app never sells your data, never shows ads, never tracks you
+across apps or websites, and has no servers of its own. Uninstalling
+the app deletes everything it stored.
 
 ---
 
@@ -61,7 +63,7 @@ previously-exported file via the same screen.
 
 ## What leaves your device
 
-There are four categories of network requests the app makes,
+There are three categories of network requests the app makes,
 the last of which can be turned off in Settings.
 
 ### 1. Meal parsing — Google Gemini API
@@ -90,16 +92,7 @@ can avoid using voice and text meal logging entirely — log meals
 manually through the "Saved meals" flow instead, which performs
 no network calls.
 
-### 2. Food lookups — USDA FoodData Central API
-
-When a food name isn't in the app's local cache, the name is
-queried against the public [USDA FoodData Central API](https://fdc.nal.usda.gov)
-for a reference identifier. This is a US-government service.
-
-- **Sent**: the food name text only.
-- **Receiver**: USDA. Subject to [USDA's privacy notice](https://www.usda.gov/privacy-policy).
-
-### 3. Optional support links
+### 2. Optional support links
 
 The "Support development" buttons in Settings open the system
 browser to either Ko-fi or GitHub Sponsors. No payment data
@@ -110,7 +103,7 @@ of those services:
 - [Ko-fi Privacy Policy](https://more.ko-fi.com/privacy)
 - [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)
 
-### 4. Crash reports and in-app feedback — Sentry (opt-out)
+### 3. Crash reports and in-app feedback — Sentry (opt-out)
 
 The app sends two kinds of data to [Sentry](https://sentry.io),
 both gated by a single toggle:
@@ -128,36 +121,42 @@ broke and fix it.
   configured with `sendDefaultPii: false` and user-input
   breadcrumbs are dropped before transmission.
 
-**Voluntary feedback.** Settings → Feedback → "Open in-app
-feedback form" opens a form for sending feedback directly to
-me. Submissions go to the same Sentry project as crash reports.
+**Voluntary feedback.** Settings → Feedback offers three ways
+to reach me; two of them send data to Sentry.
 
-- **Sent (only when you explicitly submit the form)**: your
-  name, your email address, the free-text message you write,
-  and the same environment metadata as a crash report (app
-  version, Android version, device model, route).
-- **Not sent**: screenshots. The in-app screen-capture option
-  for feedback is disabled because your screens can contain
-  weights, body measurements, and other private health data.
-- The name and email fields exist so I can reply to you about
-  whatever you reported. The form requires both — leave them
-  blank and the form won't submit.
+- **"Report a bug" / "Suggest a feature"** open a short in-app
+  form. When you type a message and tap send, the **message
+  text** — plus the same environment metadata as a crash report
+  (app version, Android version, device model, route) — is sent
+  to Sentry. **No name or email is collected.** These two work
+  whether or not crash reporting is enabled, because each is an
+  explicit submission you initiate.
+- **"Open in-app feedback form"** is Sentry's own feedback
+  widget. It sends your message and, **optionally**, a name and
+  email if you choose to fill those fields — they are not
+  required, and the form submits with or without them. This
+  button is hidden when crash reporting is turned off.
 
-**Receiver for both**: Sentry. Subject to [Sentry's Privacy Policy](https://sentry.io/privacy/).
+The name and email, when provided, exist only so I can reply to
+you. **Screenshots are never sent** — the widget's screen-capture
+option is disabled because your screens can contain weights, body
+measurements, and other private health data.
 
-**How to disable both**: Settings → About & Legal → toggle
-"Send crash reports" off. This single toggle gates both
-automatic crash reports AND the in-app feedback form (when
-off, the feedback button is hidden, since submissions would
-flow through the same Sentry channel). The setting takes
-effect immediately — no app restart required, no further
-data leaves the device.
+**Receiver for crash reports and both Sentry feedback paths
+above**: Sentry. Subject to [Sentry's Privacy Policy](https://sentry.io/privacy/).
 
-The two email-based feedback buttons (Settings → Feedback →
-"Report a bug" / "Suggest a feature") are always available
-regardless of this toggle. Those open your phone's mail app
-with a pre-filled template addressed to the developer; nothing
-touches Sentry.
+**How to disable**: Settings → About & Legal → toggle "Send
+crash reports" off. This stops automatic crash reports and hides
+the "Open in-app feedback form" widget, and takes effect
+immediately (no app restart required). Note that "Report a bug"
+and "Suggest a feature" still send your message to Sentry when
+you choose to use them — turning the toggle off does not disable
+those, since each is an explicit action you take.
+
+A third feedback option, **"Contact developer"**, opens your
+phone's mail app with a pre-filled email to the developer. It
+never touches Sentry and is always available, even with crash
+reporting off.
 
 ---
 
@@ -217,10 +216,9 @@ continue to run.
 - **At rest** — Data is stored in the app's private SQLite database,
   encrypted automatically by Android's file-based encryption.
 - **Credentials** — Any API keys you enter in Settings (Gemini,
-  USDA, Resend, backup email) are stored in `expo-secure-store`,
+  Resend, backup email) are stored in `expo-secure-store`,
   which uses Android's Keystore. Other apps cannot read them.
-- **In transit** — All network requests to Gemini and USDA use
-  HTTPS.
+- **In transit** — All network requests to Gemini use HTTPS.
 - **Code obfuscation** — The shipped APK is minified and
   obfuscated with ProGuard / R8 so that on-device class names
   and string literals don't reveal internal app structure.
@@ -252,8 +250,8 @@ data, uninstall the app from that device to remove all data.
   microphone. To stop sending data to Gemini entirely, simply
   avoid using voice and text meal logging.
 - **Opt out of optional features** — Voice meal logging, text
-  meal logging, USDA food lookups, Health Connect reads (steps
-  and sleep), and notifications are all individually optional.
+  meal logging, Health Connect reads (steps and sleep), and
+  notifications are all individually optional.
   The app remains functional with all of them disabled.
 
 ---
@@ -265,8 +263,9 @@ data, uninstall the app from that device to remove all data.
 - ❌ Show advertising
 - ❌ Track you across apps or websites
 - ❌ Use cookies or device-tracking identifiers
-- ❌ Share or sell any data with anyone (crash reports under
-  Section 4 above are an exception, opt-out in Settings)
+- ❌ Share or sell any data with anyone (crash reports and
+  in-app feedback under Section 3 above are exceptions; crash
+  reporting is opt-out in Settings)
 - ❌ Operate any server collecting user data
 - ❌ Require account signup
 - ❌ Sync your data to the cloud
