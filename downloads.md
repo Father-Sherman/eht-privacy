@@ -9,7 +9,7 @@ permalink: /downloads/
 ## Android
 
 **[Download the APK](https://github.com/Father-Sherman/eht-privacy/releases/latest/download/eht-weight-loss.apk)**
-&nbsp;&nbsp;<small>currently v1.99.6</small>
+&nbsp;&nbsp;<small>currently v2.37.9</small>
 
 <!-- The asset filename is deliberately unversioned. A "latest"
      download URL has to name the file exactly, so a versioned
