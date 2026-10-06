@@ -7,7 +7,7 @@ permalink: /privacy/
 # E-HT Weight Loss — Privacy Policy
 
 **Effective date:** May 27, 2026
-**Last updated:** September 4, 2026
+**Last updated:** October 5, 2026
 
 This document describes how the E-HT Weight Loss Android app
 ("the app") handles your data. It is written in plain English
@@ -23,11 +23,15 @@ data that leaves your device is the **text you type or speak when
 describing meals**, and, if you use photo meal logging, **the photo
 of the plate** (both sent to the AI provider you have configured,
 which identifies the food and estimates calories/macros). Progress
-photos are a different feature and never leave your phone. The app
+photos are a different feature and stay on your phone, unless you
+choose to email your backups with photo backup turned on. The app
 also sends **crash and diagnostic reports** and
 any **feedback you submit (with a reply-to email address, so the
 developer can respond)** to an error-tracking service (Sentry) —
 crash reporting is on by default but can be turned off in Settings.
+If you set up **email backup**, your backup file is emailed to an
+address you choose through a mail service (Resend); that is off unless
+you set it up.
 The app never sells your data, never shows ads, never tracks you
 across apps or websites, and has no servers of its own. Uninstalling
 the app deletes everything it stored.
@@ -67,8 +71,9 @@ previously-exported file via the same screen.
 
 ## What leaves your device
 
-There are three categories of network requests the app makes,
-the last of which can be turned off in Settings.
+There are four categories of network requests the app makes.
+Crash reporting (Section 3) can be turned off in Settings, and email
+backup (Section 4) only happens if you set it up.
 
 ### 1. Meal parsing — the AI provider you choose
 
@@ -89,8 +94,9 @@ added to your photo gallery.
 - **Sent**: the meal description text, plus the meal photo if you
   use photo logging.
 - **Not sent**: your weight, profile, progress photos, or anything
-  else. **Progress photos are a separate feature and are never
-  transmitted** to anyone.
+  else. **Progress photos are a separate feature and are never sent
+  to the AI provider.** (The only way they can leave your phone is
+  inside an emailed backup, Section 4, which you control.)
 - **Receiver**: whichever provider you have selected in Settings.
   The choices are Google (Generative Language API), Groq, and
   Mistral. Google's use is subject to
@@ -236,6 +242,31 @@ phone's mail app with a pre-filled email to the developer. It
 never touches Sentry and is always available, even with crash
 reporting off.
 
+### 4. Email backup — Resend (only if you set it up)
+
+E-HT can email your backup file to you, so a copy exists somewhere
+other than your phone. This is **off unless you set it up** under
+**Settings → Backup → Email backup**, which needs your own Resend API
+key and the email address to send to.
+
+Once set up, it sends when you tap the send button, and after each
+scheduled backup.
+
+- **Sent**: your full backup file (the same JSON as **Export all
+  data**: profile, weights, measurements, meals, workouts, daily
+  summaries, sleep and steps), attached to an email. If you have also
+  turned on **photo backup**, the file includes smaller copies of your
+  progress photos. API keys and other credentials are never included.
+- **Receiver**: [Resend](https://resend.com), a mail-delivery service,
+  which delivers it to the address you entered. The email passes
+  through Resend's systems and is then held by your own email
+  provider. Subject to [Resend's Privacy Policy](https://resend.com/legal/privacy-policy).
+- **Not sent to the developer.** The developer never receives or sees
+  your backups.
+- **How to stop**: remove your Resend key or the email address in
+  **Settings → Backup → Email backup**. Emails already sent stay in
+  your inbox until you delete them.
+
 ---
 
 ## Health Connect
@@ -257,8 +288,11 @@ the app works without either:
 
 Health Connect data is read directly from Health Connect on your
 phone and used only on-device. The app **never** sends Health
-Connect data over the network, never stores it anywhere off your
-phone, and never shares it with the developer or any third party.
+Connect data over the network to any service, and never shares it
+with the developer or any third party. The one exception is your own
+backup: if you set up email backup (Section 4), the backup file
+includes your step and sleep history and is emailed to the address
+you chose.
 
 Health Connect data the app has copied into its local database
 (your step and sleep history) is deleted when you uninstall the
@@ -297,7 +331,7 @@ continue to run.
   `expo-secure-store`, which uses Android's Keystore. Other apps
   cannot read them.
 - **In transit** — Every network request the app makes, to any AI
-  provider or to Sentry, uses HTTPS.
+  provider, to Sentry or to Resend, uses HTTPS.
 - **Code obfuscation** — The shipped APK is minified and
   obfuscated with ProGuard / R8 so that on-device class names
   and string literals don't reveal internal app structure.
@@ -330,8 +364,8 @@ data, uninstall the app from that device to remove all data.
   voice, text and photo meal logging.
 - **Opt out of optional features** — Voice meal logging, text
   meal logging, photo meal logging (Settings → Meal input),
-  Health Connect reads (steps and sleep), and notifications are
-  all individually optional. The app remains functional with all
+  Health Connect reads (steps and sleep), email backup, and
+  notifications are all individually optional. The app remains functional with all
   of them disabled.
 
 ---
@@ -339,10 +373,10 @@ data, uninstall the app from that device to remove all data.
 ## What this app does NOT do
 
 - ❌ Send your weight, body measurements, sleep, steps, progress
-  photos, or any health metric to any third party. (Meal
+  photos, or any health metric to any third party, except inside a
+  backup you choose to email to yourself (Section 4). (Meal
   descriptions, and meal photos if you use photo logging, do go to
-  the AI provider you choose. That is Section 1 above, and it is
-  the one thing on this page that leaves your phone by design.)
+  the AI provider you choose. That is Section 1 above.)
 - ❌ Show advertising
 - ❌ Track you across apps or websites
 - ❌ Use cookies or device-tracking identifiers
@@ -351,7 +385,8 @@ data, uninstall the app from that device to remove all data.
   reporting is opt-out in Settings)
 - ❌ Operate any server collecting user data
 - ❌ Require account signup
-- ❌ Sync your data to the cloud
+- ❌ Sync your data to the cloud (emailing a backup to yourself,
+  Section 4, is a copy you choose to send, not a sync)
 
 ---
 
