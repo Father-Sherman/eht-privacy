@@ -347,6 +347,36 @@ data, uninstall the app from that device to remove all data.
 
 ---
 
+## Deleting your data
+
+This section is for **E-HT Weight Loss** (Android). E-HT has no
+accounts and keeps your data on your phone, so most of it is yours to
+delete directly.
+
+**To delete what E-HT stores on your phone:** uninstall E-HT. That
+removes everything it stored: profile, weights, measurements, meals,
+workouts, sleep and step history, progress photos, settings and saved
+keys. To delete single entries instead, use each one's own screen.
+
+**To delete crash reports and feedback you sent (Sentry):** email
+**externalhypothalamus@gmail.com** with the subject "Delete my E-HT
+data". Include the reply-to email address you used on any feedback, so
+it can be found. It is deleted within 30 days and you get a reply when
+it is done. If you do nothing, crash reports and feedback are deleted
+automatically after 90 days.
+
+**What the developer cannot delete for you:**
+
+- **Meal text and meal photos** you sent to your AI provider (Google,
+  Groq or Mistral) are held under that provider's own policy, with your
+  own key. The developer never receives them. Ask the provider.
+- **Emailed backups** (Section 4) are in your own inbox. Delete them
+  there. Resend keeps delivery records under its own policy.
+
+Nothing else about you is kept anywhere.
+
+---
+
 ## Your rights and choices
 
 - **Access** — All of your data lives on your device. You can
@@ -354,7 +384,7 @@ data, uninstall the app from that device to remove all data.
   no separate database to request access to.
 - **Export** — Settings → "Export all data" produces a JSON file
   containing every row the app has stored.
-- **Delete** — Uninstalling the app removes every byte the app
+- **Delete** — See "Deleting your data" above. Uninstalling removes every byte the app
   has stored on your phone. You can also delete individual
   entries (weights, meals, workouts, photos) through their
   respective screens.
