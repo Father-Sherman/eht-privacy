@@ -7,7 +7,7 @@ permalink: /privacy/
 # E-HT Weight Loss — Privacy Policy
 
 **Effective date:** May 27, 2026
-**Last updated:** October 5, 2026
+**Last updated:** October 12, 2026
 
 This document describes how the E-HT Weight Loss Android app
 ("the app") handles your data. It is written in plain English
@@ -32,6 +32,10 @@ crash reporting is on by default but can be turned off in Settings.
 If you set up **email backup**, your backup file is emailed to an
 address you choose through a mail service (Resend); that is off unless
 you set it up.
+E-HT also checks whether a newer version is out: once a day with
+GitHub for download-page installs, or through Google Play for Play
+installs. That check sends nothing about you, and you can turn it off
+in Settings.
 The app never sells your data, never shows ads, never tracks you
 across apps or websites, and has no servers of its own. Uninstalling
 the app deletes everything it stored.
@@ -71,7 +75,7 @@ previously-exported file via the same screen.
 
 ## What leaves your device
 
-There are four categories of network requests the app makes.
+There are five categories of network requests the app makes.
 Crash reporting (Section 3) can be turned off in Settings, and email
 backup (Section 4) only happens if you set it up.
 
@@ -266,6 +270,30 @@ scheduled backup.
 - **How to stop**: remove your Resend key or the email address in
   **Settings → Backup → Email backup**. Emails already sent stay in
   your inbox until you delete them.
+
+---
+
+### 5. Update check (on unless you turn it off)
+
+E-HT can tell you when a new version is out.
+
+- **If you installed E-HT from the download page**: about once a day,
+  E-HT asks GitHub, the site that hosts the download page, which version
+  is the newest.
+  - **Sent**: an ordinary web request for that public page, from your
+    phone's internet (IP) address, the same as visiting any website.
+    Nothing about you goes with it: no account, no ID, no settings, and
+    nothing you have logged.
+  - **Receiver**: [GitHub](https://github.com). Subject to
+    [GitHub's Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
+  - **Not sent to the developer.** The developer cannot see who checked.
+  - If a newer version is out, tapping **Update** opens the download in
+    your browser. Nothing installs until you open the file.
+- **If you installed E-HT from Google Play**: Google Play does the
+  checking, through the Play Store app already on your phone, the same
+  way it handles any app update. E-HT sends nothing of its own.
+- **How to stop**: turn off **Settings → About & Legal → Check for
+  updates**. E-HT then never checks.
 
 ---
 
