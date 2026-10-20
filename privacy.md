@@ -7,7 +7,7 @@ permalink: /privacy/
 # E-HT Weight Loss — Privacy Policy
 
 **Effective date:** May 27, 2026
-**Last updated:** October 12, 2026
+**Last updated:** October 19, 2026
 
 This document describes how the E-HT Weight Loss Android app
 ("the app") handles your data. It is written in plain English
@@ -36,9 +36,15 @@ E-HT also checks whether a newer version is out: once a day with
 GitHub for download-page installs, or through Google Play for Play
 installs. That check sends nothing about you, and you can turn it off
 in Settings.
+If you turn on **leaderboards**, a small daily summary (a display name
+you choose, whether each day was a win, a loss or neither, and your
+streak) goes to the E-HT leaderboard server so the people in your
+groups can see it. That is off unless you turn it on.
 The app never sells your data, never shows ads, never tracks you
-across apps or websites, and has no servers of its own. Uninstalling
-the app deletes everything it stored.
+across apps or websites, and has no servers of its own, unless you
+turn on leaderboards. Uninstalling the app deletes everything it
+stored on your phone. Turning leaderboards off deletes your account on
+the leaderboard server.
 
 ---
 
@@ -75,9 +81,10 @@ previously-exported file via the same screen.
 
 ## What leaves your device
 
-There are five categories of network requests the app makes.
-Crash reporting (Section 3) can be turned off in Settings, and email
-backup (Section 4) only happens if you set it up.
+There are six categories of network requests the app makes.
+Crash reporting (Section 3) and the update check (Section 5) can be
+turned off in Settings. Email backup (Section 4) and leaderboards
+(Section 6) only happen if you set them up.
 
 ### 1. Meal parsing — the AI provider you choose
 
@@ -295,6 +302,83 @@ E-HT can tell you when a new version is out.
 - **How to stop**: turn off **Settings → About & Legal → Check for
   updates**. E-HT then never checks.
 
+### 6. Leaderboards (only if you turn them on)
+
+Leaderboards let a small group of friends who invited each other see
+how often each of you hits your own goal. They are **off unless you
+turn them on** under **Settings → Leaderboards**. Until you do, E-HT
+sends nothing to the leaderboard server, not even a check that it is
+there. Everything else in E-HT works the same whether or not you use
+them.
+
+Turning leaderboards on shows a screen that explains all of this
+first. Nothing is sent until you tap **I agree**.
+
+**Sent once you agree:**
+
+- A **display name** you type. It does not have to be your real name.
+- For each finished day in the last 35 days: its **date**, whether it
+  was a **win, a loss or neither** (judged against your own goal), and
+  whether you marked it **not tracked**.
+- Your **current streak**, and the E-HT version number.
+- The **names of groups** you create, and any **reports** you send
+  about a name.
+
+**Health Connect.** Whether a day is a win or a loss depends on the
+calories you burned, and if you let E-HT read steps from Health
+Connect, those steps are part of that number. So the win or loss can
+depend on your Health Connect steps. **No Health Connect value is ever
+sent**: not your step count, not your sleep. Only the one word (win,
+loss or neither) is.
+
+**Never sent:** your weight, body measurements, body-fat percentage,
+calories, steps, sleep, meals, photos, goal type, goal weight, date of
+birth, sex, height, or anything else from Health Connect.
+
+- **Who runs it**: the leaderboard server is run for E-HT by **Josh
+  Gee**, at `externalhypothalamus-lb.com`. Everything sent to it passes
+  through **Cloudflare**, which provides the connection to the server.
+  Like any website, the server and Cloudflare see your phone's internet
+  (IP) address when E-HT connects. It is not saved in your leaderboard
+  account.
+- **Who can see it**: only the members of groups you are in. They see
+  your display name, your streak, and how many win days and logged days
+  you had this week and this month. There is no public list.
+- **Your account**: turning leaderboards on creates a leaderboard
+  account with no email, password or real name. Its sign-in key stays in
+  your phone's secure storage and is never put in backups. E-HT shows
+  you a **recovery code** once, when the account is made. Save it: on a
+  new phone it gets your account back (and the old phone is signed
+  out), and it is what the delete page asks for. Without it, a new
+  phone means a new account, and you join your groups again by invite.
+- **How long it is kept**: day results are deleted after **90 days**.
+  An account that is not used for **180 days** is deleted, with
+  everything in it. Reports are deleted after 90 days.
+- **Backups**: the server is backed up. When your account is deleted it
+  leaves the live server at once, but copies can stay in the server's
+  backups for **up to about 12 months** before they are gone. They are
+  not used for anything except restoring the server after a failure.
+- **Security**: everything is **encrypted on the way** to the server
+  (HTTPS). The sign-in key and the recovery code are stored only in a
+  scrambled (hashed) form that cannot be turned back into the code.
+<!-- PLACEHOLDER: ENABLE WHEN eht-server PR #13 (encryption at rest) IS
+LIVE ON THE SERVER, and not before. Then set encryptedAtRest to true in
+lib/leaderboardServerFacts.ts in the same release, and add this line to
+the Security bullet above:
+  It is also **encrypted where it is stored**, on the server and in its
+  backups.
+-->
+- **Never sold, never used for ads.** Leaderboard data is used only to
+  show your groups' boards.
+- **How to turn it off**: turn leaderboards off in **Settings →
+  Leaderboards**. That deletes your leaderboard account and everything
+  it held on the live server right away. Groups you created pass to
+  their longest-standing member, or are removed if you were the only
+  one.
+- **If you no longer have E-HT or the phone**: go to
+  `https://api.externalhypothalamus-lb.com/delete` and enter your
+  recovery code. That deletes your account the same way.
+
 ---
 
 ## Health Connect
@@ -315,12 +399,15 @@ the app works without either:
   deficit.
 
 Health Connect data is read directly from Health Connect on your
-phone and used only on-device. The app **never** sends Health
-Connect data over the network to any service, and never shares it
-with the developer or any third party. The one exception is your own
-backup: if you set up email backup (Section 4), the backup file
-includes your step and sleep history and is emailed to the address
-you chose.
+phone and used on your phone. The app **never** sends a Health
+Connect value (a step count or a sleep record) to the developer or
+any third party, with one exception: your own backup. If you set up
+email backup (Section 4), the backup file includes your step and sleep
+history and is emailed to the address you chose.
+
+If you turn on leaderboards (Section 6), each day's win or loss is
+sent, and that result can depend on your Health Connect steps. The
+steps themselves are not sent. Section 6 explains exactly what is.
 
 Health Connect data the app has copied into its local database
 (your step and sleep history) is deleted when you uninstall the
@@ -359,7 +446,8 @@ continue to run.
   `expo-secure-store`, which uses Android's Keystore. Other apps
   cannot read them.
 - **In transit** — Every network request the app makes, to any AI
-  provider, to Sentry or to Resend, uses HTTPS.
+  provider, to Sentry, to Resend or to the leaderboard server, uses
+  HTTPS.
 - **Code obfuscation** — The shipped APK is minified and
   obfuscated with ProGuard / R8 so that on-device class names
   and string literals don't reveal internal app structure.
@@ -378,8 +466,8 @@ data, uninstall the app from that device to remove all data.
 ## Deleting your data
 
 This section is for **E-HT Weight Loss** (Android). E-HT has no
-accounts and keeps your data on your phone, so most of it is yours to
-delete directly.
+accounts, unless you turn on leaderboards, and keeps your data on your
+phone, so most of it is yours to delete directly.
 
 **To delete what E-HT stores on your phone:** uninstall E-HT. That
 removes everything it stored: profile, weights, measurements, meals,
@@ -392,6 +480,14 @@ data". Include the reply-to email address you used on any feedback, so
 it can be found. It is deleted within 30 days and you get a reply when
 it is done. If you do nothing, crash reports and feedback are deleted
 automatically after 90 days.
+
+**To delete your leaderboard account (only if you turned leaderboards
+on):** turn leaderboards off in **Settings → Leaderboards**. If you no
+longer have E-HT or the phone, go to
+`https://api.externalhypothalamus-lb.com/delete` and enter your
+recovery code. Either way the account leaves the live server at once;
+copies can stay in the server's backups for up to about 12 months
+(Section 6).
 
 **What the developer cannot delete for you:**
 
@@ -409,7 +505,8 @@ Nothing else about you is kept anywhere.
 
 - **Access** — All of your data lives on your device. You can
   view, export, or delete it through the app's own UI. There is
-  no separate database to request access to.
+  no separate database to request access to, unless you turn on
+  leaderboards: the server then holds only what Section 6 lists.
 - **Export** — Settings → "Export all data" produces a JSON file
   containing every row the app has stored.
 - **Delete** — See "Deleting your data" above. Uninstalling removes every byte the app
@@ -422,8 +519,8 @@ Nothing else about you is kept anywhere.
   voice, text and photo meal logging.
 - **Opt out of optional features** — Voice meal logging, text
   meal logging, photo meal logging (Settings → Meal input),
-  Health Connect reads (steps and sleep), email backup, and
-  notifications are all individually optional. The app remains functional with all
+  Health Connect reads (steps and sleep), email backup, leaderboards,
+  and notifications are all individually optional. The app remains functional with all
   of them disabled.
 
 ---
@@ -432,7 +529,9 @@ Nothing else about you is kept anywhere.
 
 - ❌ Send your weight, body measurements, sleep, steps, progress
   photos, or any health metric to any third party, except inside a
-  backup you choose to email to yourself (Section 4). (Meal
+  backup you choose to email to yourself (Section 4). Leaderboards
+  (Section 6) send only a win, loss or neither for each day and your
+  streak, never the numbers behind them. (Meal
   descriptions, and meal photos if you use photo logging, do go to
   the AI provider you choose. That is Section 1 above.)
 - ❌ Show advertising
@@ -440,11 +539,15 @@ Nothing else about you is kept anywhere.
 - ❌ Use cookies or device-tracking identifiers
 - ❌ Share or sell any data with anyone (crash reports and
   in-app feedback under Section 3 above are exceptions; crash
-  reporting is opt-out in Settings)
-- ❌ Operate any server collecting user data
-- ❌ Require account signup
+  reporting is opt-out in Settings. Leaderboards, if you turn them
+  on, show your daily results to your groups, Section 6)
+- ❌ Operate any server collecting user data, unless you turn on
+  leaderboards (Section 6), which receive only what that section lists
+- ❌ Require account signup (a leaderboard account is made only if you
+  turn on leaderboards, and has no email, password or real name)
 - ❌ Sync your data to the cloud (emailing a backup to yourself,
-  Section 4, is a copy you choose to send, not a sync)
+  Section 4, is a copy you choose to send, not a sync; leaderboards,
+  Section 6, send only a daily summary, not your log)
 
 ---
 
