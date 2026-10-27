@@ -7,7 +7,7 @@ permalink: /privacy/
 # E-HT Weight Loss — Privacy Policy
 
 **Effective date:** May 27, 2026
-**Last updated:** October 19, 2026
+**Last updated:** October 26, 2026
 
 This document describes how the E-HT Weight Loss Android app
 ("the app") handles your data. It is written in plain English
@@ -36,10 +36,13 @@ E-HT also checks whether a newer version is out: once a day with
 GitHub for download-page installs, or through Google Play for Play
 installs. That check sends nothing about you, and you can turn it off
 in Settings.
-If you turn on **leaderboards**, a small daily summary (a display name
-you choose, whether each day was a win, a loss or neither, and your
-streak) goes to the E-HT leaderboard server so the people in your
-groups can see it. That is off unless you turn it on.
+If you turn on **leaderboards**, a daily summary (a display name you
+choose, whether each day was a win, a loss or neither, and your streak)
+and a set of figures (such as your weight progress as a percent,
+activity calories, lifts and how long you slept) go to the E-HT leaderboard
+server so the people in your groups can see them. That is off unless
+you turn it on. Turning it on shares everything Section 6 lists: you
+can't pick only some of it.
 The app never sells your data, never shows ads, never tracks you
 across apps or websites, and has no servers of its own, unless you
 turn on leaderboards. Uninstalling the app deletes everything it
@@ -311,8 +314,10 @@ sends nothing to the leaderboard server, not even a check that it is
 there. Everything else in E-HT works the same whether or not you use
 them.
 
-Turning leaderboards on shows a screen that explains all of this
-first. Nothing is sent until you tap **I agree**.
+Turning leaderboards on shows a screen that lists everything below
+first. Nothing is sent until you tap **I agree**. Agreeing shares all
+of it: you can't pick only some of it, and there are no separate
+switches for each part. To stop sharing, turn leaderboards off.
 
 **Sent once you agree:**
 
@@ -321,19 +326,75 @@ first. Nothing is sent until you tap **I agree**.
   was a **win, a loss or neither** (judged against your own goal), and
   whether you marked it **not tracked**.
 - Your **current streak**, and the E-HT version number.
+- **Weight progress**: how far you are from your starting weight to
+  your goal, as a whole percent; the weight you have lost as a percent
+  of your starting weight (each week counts for at most 1 percent); and
+  a crown when E-HT's body-fat estimate from measurements in the last
+  30 days is in a set range (6 to 14 percent for men, 14 to 21 percent
+  for women). Never your weight, goal weight, body fat or
+  measurements, although a crown does say your estimate is in that
+  range.
+- **Activity calories**: for each finished day in the last 35, the
+  calories burned by your steps and workouts, as one number. Never
+  your step count, what you ate, or the calories you burn at rest.
+- **Workouts and skill level**: for each finished day in the last 35,
+  how many workouts you logged that day, and your skill tree level.
+  Never what the workouts were.
+- **Deficit**: for each finished day you logged food, the gap between
+  what you burned and what you ate, as a percent of what you burned
+  (from minus 50 to 50). Your groups see the month's average. Never the
+  calories themselves.
+- **Audit counts**: counts from your Audit for the last 30 days (for
+  example 24 of 30 days logged, days on target, protein days, weeks
+  with 3 workouts, weeks weighed in) and your activity score as a
+  percent. Never a grade, and never the calories or grams behind them.
+- **Lifts**, if the lifts tracker is on: your latest estimated one-rep
+  max for bench, squat and deadlift and their total, both as the weight
+  and as a pound-for-pound score (DOTS) with E-HT's strength level.
+  Overhead press and row are sent as the weight only. A lift not logged
+  for 180 days is left out. Your bodyweight and sex are never sent,
+  **but because your lifts go as both the weight and the
+  pound-for-pound score, people in your groups can work out your
+  bodyweight to within about a kilogram (about 2 pounds), and see when
+  it changes.** The consent screen says this in bold before you agree.
+  If the lifts tracker is off, no lifts are sent, and any sent earlier
+  come off the boards.
+- **Sleep**: for each night in the last 35 days that E-HT has sleep
+  for, how long you slept, in minutes. Never the times you went to bed
+  or woke up, your sleep stages, or where the sleep came from.
 - The **names of groups** you create, and any **reports** you send
   about a name.
 
-**Health Connect.** Whether a day is a win or a loss depends on the
-calories you burned, and if you let E-HT read steps from Health
-Connect, those steps are part of that number. So the win or loss can
-depend on your Health Connect steps. **No Health Connect value is ever
-sent**: not your step count, not your sleep. Only the one word (win,
-loss or neither) is.
+Only the members of your groups see these, as a board figure (a total,
+an average or a latest value), never as a list of your days.
+
+**Health Connect.** Some of this uses Health Connect, and the consent
+screen names it. Whether a day is a win or a loss, your activity
+calories, your deficit and the Audit's on-target and activity counts
+are partly calculated from the calories you burned through your steps,
+and your steps can come from Health Connect. Your step count itself is
+never sent. **Your sleep can come from Health Connect**: if it does,
+how long you slept each night is Health Connect data when E-HT sends
+it. These are
+the only Health Connect values that go to the leaderboard server as
+they are, not calculated into something else.
+
+**Each time you agree, everything is turned on.** That is when you
+first turn leaderboards on, when you get your account back on a new
+phone with your recovery code, and when you agree again after the
+leaderboard terms change (E-HT shows the screen again and sends
+nothing new until you agree). There is no way to keep leaderboards on
+and stop sharing one part. The only way to stop sharing is to turn
+leaderboards off, which deletes your account and everything it held
+from the live server at once (copies can stay in the server's backups,
+as below).
 
 **Never sent:** your weight, body measurements, body-fat percentage,
-calories, steps, sleep, meals, photos, goal type, goal weight, date of
-birth, sex, height, or anything else from Health Connect.
+the calories you ate, step counts, the times you went to bed or woke
+up, sleep stages, meals, photos, goal type, goal weight,
+date of birth, sex, height, your bodyweight (though your groups can
+work it out from your lifts, as above), or any other Health Connect
+value.
 
 - **Who runs it**: the leaderboard server is run for E-HT by **Josh
   Gee**, at `externalhypothalamus-lb.com`. Everything sent to it passes
@@ -343,33 +404,39 @@ birth, sex, height, or anything else from Health Connect.
   account.
 - **Who can see it**: only the members of groups you are in. They see
   your display name, your streak, and how many win days and logged days
-  you had this week and this month. There is no public list.
+  you had over the last 7 and last 30 days, plus the board figures for
+  everything else listed above. There is no public list.
 - **Your account**: turning leaderboards on creates a leaderboard
-  account with no email, password or real name. Its sign-in key stays in
-  your phone's secure storage and is never put in backups. E-HT shows
-  you a **recovery code** once, when the account is made. Save it: on a
-  new phone it gets your account back (and the old phone is signed
-  out), and it is what the delete page asks for. Without it, a new
-  phone means a new account, and you join your groups again by invite.
-- **How long it is kept**: day results are deleted after **90 days**.
-  An account that is not used for **180 days** is deleted, with
-  everything in it. Reports are deleted after 90 days.
+  account with no email, password or real name. Its sign-in key and its
+  **recovery code** stay in your phone's secure storage. The sign-in key
+  is never put in backups or sent anywhere else. The recovery code is
+  also written into your data export (Section 4), so you can find it
+  there; restoring a backup never uses it to sign a phone in. You can
+  see the code any time in **Settings → Leaderboards → Show my recovery
+  code**. Save a copy
+  somewhere else too: on a new phone it gets your account back (and the
+  old phone is signed out), and it is what the delete page asks for.
+  Without it, a new phone means a new account, and you join your groups
+  again by invite. Turning leaderboards off, or being signed out,
+  removes the code from the phone.
+- **How long it is kept**: day results, and the other daily and
+  weekly figures, are deleted after **90 days**. A latest
+  value (goal progress, weight lost, crown, skill level, Audit, lifts)
+  not refreshed for 90 days is cleared. An account that is not used for
+  **180 days** is deleted, with everything in it. Reports are deleted
+  after 90 days.
 - **Backups**: the server is backed up. When your account is deleted it
   leaves the live server at once, but copies can stay in the server's
   backups for **up to about 12 months** before they are gone. They are
   not used for anything except restoring the server after a failure.
-- **Security**: everything is **encrypted on the way** to the server
-  (HTTPS). The sign-in key and the recovery code are stored only in a
-  scrambled (hashed) form that cannot be turned back into the code.
-<!-- PLACEHOLDER: ENABLE WHEN eht-server PR #13 (encryption at rest) IS
-LIVE ON THE SERVER, and not before. Then set encryptedAtRest to true in
-lib/leaderboardServerFacts.ts in the same release, and add this line to
-the Security bullet above:
-  It is also **encrypted where it is stored**, on the server and in its
-  backups.
--->
+- **Security**: everything is **encrypted in transit and at rest**:
+  on the way to the server (HTTPS), and where it is stored, on the
+  server and in its backups. On the server, the sign-in key and the
+  recovery code are stored only in a scrambled (hashed) form that cannot be turned back
+  into the code. Nobody looks at the values: there is no admin view,
+  and the server's logs carry counts only.
 - **Never sold, never used for ads.** Leaderboard data is used only to
-  show your groups' boards.
+  show your groups' boards, not for analytics or anything else.
 - **How to turn it off**: turn leaderboards off in **Settings →
   Leaderboards**. That deletes your leaderboard account and everything
   it held on the live server right away. Groups you created pass to
@@ -401,13 +468,19 @@ the app works without either:
 Health Connect data is read directly from Health Connect on your
 phone and used on your phone. The app **never** sends a Health
 Connect value (a step count or a sleep record) to the developer or
-any third party, with one exception: your own backup. If you set up
-email backup (Section 4), the backup file includes your step and sleep
-history and is emailed to the address you chose.
+any third party, with two exceptions you choose yourself: your own
+backup, and how long you slept each night if you turn on leaderboards. If
+you set up email backup (Section 4), the backup file includes your step
+and sleep history and is emailed to the address you chose.
 
-If you turn on leaderboards (Section 6), each day's win or loss is
-sent, and that result can depend on your Health Connect steps. The
-steps themselves are not sent. Section 6 explains exactly what is.
+If you turn on leaderboards (Section 6) and agree to its consent
+screen, which names Health Connect, E-HT sends each day's win or loss,
+your activity calories, your deficit and some Audit counts, and these
+can depend on your Health Connect steps. It also sends how long you
+slept each night, which can come from Health Connect. Step counts and
+the times you went to bed or woke up are never sent. Leaderboards share all of this or
+nothing, so the only way to stop it is to turn leaderboards off.
+Section 6 explains exactly what is sent.
 
 Health Connect data the app has copied into its local database
 (your step and sleep history) is deleted when you uninstall the
@@ -521,7 +594,9 @@ Nothing else about you is kept anywhere.
   meal logging, photo meal logging (Settings → Meal input),
   Health Connect reads (steps and sleep), email backup, leaderboards,
   and notifications are all individually optional. The app remains functional with all
-  of them disabled.
+  of them disabled. Leaderboards themselves are all or nothing: turning
+  them on shares everything Section 6 lists, and turning them off stops
+  all of it.
 
 ---
 
@@ -530,8 +605,9 @@ Nothing else about you is kept anywhere.
 - ❌ Send your weight, body measurements, sleep, steps, progress
   photos, or any health metric to any third party, except inside a
   backup you choose to email to yourself (Section 4). Leaderboards
-  (Section 6) send only a win, loss or neither for each day and your
-  streak, never the numbers behind them. (Meal
+  (Section 6) send only a win, loss or neither for each day, your
+  streak, and the figures Section 6 lists (percentages, counts, totals,
+  averages and lift estimates, never your weight or step counts). (Meal
   descriptions, and meal photos if you use photo logging, do go to
   the AI provider you choose. That is Section 1 above.)
 - ❌ Show advertising
@@ -547,7 +623,8 @@ Nothing else about you is kept anywhere.
   turn on leaderboards, and has no email, password or real name)
 - ❌ Sync your data to the cloud (emailing a backup to yourself,
   Section 4, is a copy you choose to send, not a sync; leaderboards,
-  Section 6, send only a daily summary, not your log)
+  Section 6, send only a daily summary and the figures Section 6
+  lists, not your log)
 
 ---
 
